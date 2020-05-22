@@ -18,18 +18,9 @@
 //   - kolik peněz jim celkově ještě chybí
 //   - kolik musí každá z nich ještě naspořit
 
-let osoba1 = {
-  jmeno: 'Alena',
-  uspory: 43000
-};
-let osoba2 = {
-  jmeno: 'Karolína',
-  uspory: 68000
-};
-
 function holidays(person1, person2) {
   if ((person1.uspory + person2.uspory) >= 100000) {
-      console.log("Let's go")
+      console.log(`Let's go, together we have enough!, we have ${person1.uspory + person2.uspory}`)
   } else {
       console.log(`We have to save up some more. We are missing ${100000 - (person1.uspory + person2.uspory)}`)
   }
@@ -43,6 +34,60 @@ function holidays(person1, person2) {
           console.log(`Oops, looks like ${person2.jmeno} has to save ${50000 - person2.uspory} more!!`)
       }
   }
+
+  return `together ${person1.uspory + person2.uspory}, p1 is ${50000 - person1.uspory} away, p2 is ${50000 - person2.uspory} away`
 };
 
-holidays(osoba1, osoba2);
+
+function test(person1, person2, result) {
+  if (holidays(person1, person2) === result) {
+    console.log("test passed");    
+  } else {
+    console.log("test failed");
+  }
+}
+
+let osoba1 = {
+  jmeno: 'Alena',
+  uspory: 43000
+};
+let osoba2 = {
+  jmeno: 'Karolína',
+  uspory: 68000
+};
+const result1 = `together ${111000}, p1 is ${7000} away, p2 is ${-18000} away`
+test(osoba1, osoba2, result1);
+
+let osobaI = {
+  jmeno: 'Filip',
+  uspory: 55000
+};
+let osobaII = {
+  jmeno: 'Lucka',
+  uspory: 32000
+};
+let resultI = `together ${87000}, p1 is ${-5000} away, p2 is ${18000} away`
+test(osobaI, osobaII, resultI);
+
+let osobaA = {
+  jmeno: 'Zdenek',
+  uspory: 48000
+};
+let osobaB = {
+  jmeno: 'Jachym',
+  uspory: 51000
+};
+let resultAB = `together ${99000}, p1 is ${2000} away, p2 is ${-1000} away`
+test(osobaA, osobaB, resultAB);
+
+let osobaX = {
+  jmeno: 'Simona',
+  uspory: 62000
+};
+let osobaY = {
+  jmeno: 'Zaneta',
+  uspory: 58000
+};
+let resultXY = `together ${120000}, p1 is ${-12000} away, p2 is ${-8000} away`
+test(osobaX, osobaY, resultXY);
+
