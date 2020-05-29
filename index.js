@@ -18,29 +18,33 @@
 //   - kolik peněz jim celkově ještě chybí
 //   - kolik musí každá z nich ještě naspořit
 
+let holidayCost = 100000;
+let onePersonCost = 50000;
+
 function holidays(person1, person2) {
   const together = (person1.uspory + person2.uspory)
   const money1 = person1.uspory;
   const money2 = person2.uspory;
-  if (together >= 100000) {
+ 
+  if (together >= holidayCost) {
     console.log(`Let's go, together we have enough!, we have ${together}`)
-    if (money1 > 50000 && money2 > 50000) {
+    if (money1 >= onePersonCost && money2 >= onePersonCost) {
       console.log(`Cool, both of you are covered`)
-    } else if (money1 < 50000) {
-      console.log(`${person1.jmeno} will have to pay ${50000 - money1}`)
+    } else if (money1 < onePersonCost) {
+      console.log(`${person1.jmeno} will have to pay ${onePersonCost - money1}`)
     } else {
-      console.log(`${person2.jmeno} will have to pay ${50000 - money2}`)
+      console.log(`${person2.jmeno} will have to pay ${onePersonCost - money2}`)
     }
 
   } else {
-    console.log(`We have to save up some more. We are missing ${100000 - together}`)
-    if (money1 < 50000) {
-      console.log(`${person1.jmeno} is missing ${50000 - money1}`)
-    } else if (money2 < 50000) {
-      console.log(`${person2.jmeno} is missing ${50000 - money2}`)
+    console.log(`We have to save up some more. We are missing ${holidayCost - together}`)
+    if (money1 < onePersonCost) {
+      console.log(`${person1.jmeno} is missing ${onePersonCost - money1}`)
+    } else if (money2 < onePersonCost) {
+      console.log(`${person2.jmeno} is missing ${onePersonCost- money2}`)
     }
   }
-  return `together ${together}, p1 is ${50000 - money1} away, p2 is ${50000 - money2} away`
+  return `together ${together}, p1 is ${onePersonCost - money1} away, p2 is ${onePersonCost - money2} away`
 };
 
 
